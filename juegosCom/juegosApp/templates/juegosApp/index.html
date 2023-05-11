@@ -10,8 +10,50 @@
     <link rel="stylesheet" href="{% static 'estilos.css' %}">
 </head>
 <body>
-    <div>
-        <h1 class="h1">BIENVENIDOS A TODOS</h1>
-    </div>
+    <header>
+        <div class="nav">
+           <h1 class="h1"> JuegosCom </h1>
+
+           <nav class="navbar">
+              <a href="">Inicio</a>
+              <a href="">Juegos</a>
+              <a href="">Free to play</a>
+              <a href="">Soporte</a>
+           </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="wrapper">
+            <article>
+                <div class="carousel">
+                    <div class="slider">
+                        <img id="slide-1" src="{% static 'images/rocket-league.jpeg' %}" alt="">
+    
+                        <img id="slide-2" src="{% static 'images/red-dead.jpeg' %}" alt="">
+            
+                        <img id="slide-3" src="{% static 'images/elden-ring.jpg' %}" alt="">
+                    </div>
+                    <div class="slider-nav">
+                        <a href="#slide-1"></a>
+                        <a href="#slide-2"></a>
+                        <a href="#slide-3"></a>
+                    </div>
+              </div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+
+                
+            </article>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    
 </body>
 </html>

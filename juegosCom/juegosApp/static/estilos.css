@@ -1,3 +1,108 @@
-.h1{
-    color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+  }
+
+/*---------------------------------CSS--------------------------*/
+
+header{
+    width: 100%;
+    background-color: rgb(29, 29, 29);
+    height: 125px;
 }
+
+.h1{
+    font-weight: 200;
+    font-size: 3rem;
+    font-family:sans-serif;
+    margin: 30px 30px 30px 50px;
+    color: rgba(255, 255, 255, 0.8);
+
+
+}
+
+.nav{
+    display: flex;
+}
+
+.nav .navbar{
+    margin: 50px;
+}
+
+.nav .navbar a{
+    padding-bottom: 3px;
+    margin: 0px 20px 20px 100px;
+    font-size: 20px;
+    font-family:sans-serif;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: 0.25s;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.nav .navbar a:hover{
+    color: rgb(192, 192, 192);
+    border-bottom: 2px solid rgb(199, 199, 199);
+}
+
+
+.wrapper{
+    margin: 0%;
+    height: 800px;
+    background-image: url(images/carousel-background.jpg);
+    background-size: cover;
+}
+
+.carousel{
+    position: relative;
+    max-width: 64rem;
+    margin: 0 auto;
+    top: 100px;
+}
+
+.carousel .slider:hover{
+    transform: scale(1.05);
+}
+ 
+.carousel .slider{
+    aspect-ratio: 16/9;
+    display: flex;
+    overflow: hidden;
+    scroll-snap-type: none;
+    scroll-behavior: smooth;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.3);
+    transition: 1s;
+
+}
+  
+.carousel .slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    position: relative; 
+}
+
+.carousel .slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+.carousel .slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+  }
+  
+.carousel .slider-nav a:hover{
+    opacity: 1;
+  }
