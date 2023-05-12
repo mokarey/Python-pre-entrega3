@@ -15,6 +15,8 @@ class PayGames(models.Model):
     clasificacion = models.IntegerField()
     costo = models.IntegerField()
 
+    def __str__(self):
+        return f'{self.nombre}, {self.costo}'
 
 #JUEGOS-GRATIS-------->
 class FreeStock(models.Model):
