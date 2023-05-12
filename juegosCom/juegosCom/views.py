@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def saludar(request):
+def index(request):
     contexto = {}
     http_responde = render(
         request=request,

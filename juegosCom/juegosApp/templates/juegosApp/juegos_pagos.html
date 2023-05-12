@@ -1,0 +1,10 @@
+{% extends "juegosApp/index.html" %}
+
+{% block content %}
+  <h1>Listado de productos</h1>
+  <ul>
+    {% for PayGame in stock %}
+      <li>{{ PayGame.nombre }} - ${{ PayGame.costo }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

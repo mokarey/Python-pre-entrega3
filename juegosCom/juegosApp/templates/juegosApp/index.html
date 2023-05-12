@@ -15,8 +15,8 @@
            <h1 class="h1"> JuegosCom </h1>
 
            <nav class="navbar">
-              <a href="">Inicio</a>
-              <a href="">Juegos</a>
+              <a href="{% url 'inicio' %}">Inicio</a>
+              <a href="{% url 'listar_juegos' %}">Juegos</a>
               <a href="">Free to play</a>
               <a href="">Soporte</a>
            </nav>
@@ -45,8 +45,8 @@
 
         <section>
             <article>
-
-                
+                {% block contenido %}
+                {% endblock contenido %}
             </article>
         </section>
     </main>
