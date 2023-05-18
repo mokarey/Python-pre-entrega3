@@ -52,8 +52,8 @@ header{
 .wrapper{
     margin: 0%;
     height: 800px;
-    background-image: url(images/carousel-background.jpg);
     background-size: cover;
+    background-image: url(../images/carousel-background.jpg);
 }
 
 .carousel{
@@ -106,3 +106,96 @@ header{
 .carousel .slider-nav a:hover{
     opacity: 1;
   }
+
+.section-1{
+    width: 100%;
+    height: 800px;
+    background-color: rgb(174, 209, 241);
+}
+
+.section-1 .contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-1 .contenido h1{
+    font-size: 5rem;
+    margin: 30px;
+    color: black;
+    align-self: center;
+}
+
+.section-1 .contenido .juegos{
+    display: flex;
+    justify-content: center;
+}
+
+.section-1 .contenido .juegos .card{
+    background-color: rgb(31, 31, 31);
+    align-self: center;
+    margin: 20px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+    transition: 1s;
+}
+
+.section-1 .contenido .juegos .card:hover{
+    transform: scale(1.1);
+}
+
+
+.section-1 .contenido .juegos h5{
+    color: #ffffff;
+}
+
+.section-1 .contenido .juegos p{
+    color: #ffffff;
+}
+
+.section-1 .contenido .juegos h6{
+    color: #ffffff;
+}
+
+
+.section-1 .contenido .subtitulo{
+    margin: 20px;
+    font-size: 30px;
+    color: black;
+
+}
+
+.section-1 .contenido .formulario{ 
+    text-align: left;
+}
+
+/*FORMULARIO*/
+
+.section-2{
+    width: 100%;
+    height: 700px;
+    background-color: rgb(174, 209, 241);
+}
+
+.section-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-2 h1{
+    font-size: 5rem;
+    margin: 30px;
+    color: black;
+    align-self: center;
+}
+
+.section-2 form{
+    position: relative;
+    left: -100px;
+}
+
+.section-2 form{
+    margin-bottom: 10px;
+}

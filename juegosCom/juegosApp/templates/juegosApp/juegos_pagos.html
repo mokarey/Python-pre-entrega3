@@ -1,10 +1,38 @@
 {% extends "juegosApp/index.html" %}
 
-{% block content %}
-  <h1>Listado de productos</h1>
-  <ul>
-    {% for PayGame in stock %}
-      <li>{{ PayGame.nombre }} - ${{ PayGame.costo }}</li>
+{% block contenido %}
+
+<section class="section-1">
+  <article class="contenido" >
+    <h1> Tendencias </h1>
+
+    <div class="juegos">
+    {% for PayGame in PayGames %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ PayGame.nombre }}</h5>
+        <p class="card-text">{{ PayGame.descripcion }}</p>
+        <h6 class="card-title">{{ PayGame.costo }}</h6>
+      </div>
+    </div>
     {% endfor %}
-  </ul>
-{% endblock %}
+    </div>
+
+
+    <div class="subtitulo">
+      <p>Publica tu juego <b>AHORA</b> <a href="{% url 'crear_juego' %}">en este enlace. </a></p>
+    </div>
+    
+    <form class="formulario" action="{% url 'buscar_juego' %}" method="POST">
+      {% csrf_token %}
+      <h4> Buscador:</h4>
+      <input type="text" name="busqueda">
+      <input type="submit" name="Buscar por costo">
+    </form>
+
+    <ul>
+
+    </ul>
+  </article>
+</section>
+{% endblock contenido %}

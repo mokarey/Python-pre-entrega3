@@ -1,7 +1,7 @@
-from datetime import datetime
-
+from datetime import date
 from django.shortcuts import render
 from django.http import HttpResponse
+import os
 
 def index(request):
     contexto = {}

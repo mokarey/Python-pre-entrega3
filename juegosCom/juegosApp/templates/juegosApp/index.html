@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 </head>
 <body>
     <header>
@@ -17,7 +17,7 @@
            <nav class="navbar">
               <a href="{% url 'inicio' %}">Inicio</a>
               <a href="{% url 'listar_juegos' %}">Juegos</a>
-              <a href="">Free to play</a>
+              <a href="{% url 'listar_juegos_gratis' %}">Free to play</a>
               <a href="">Soporte</a>
            </nav>
         </div>
@@ -43,17 +43,15 @@
             </article>
         </section>
 
-        <section>
-            <article>
-                {% block contenido %}
-                {% endblock contenido %}
-            </article>
-        </section>
+
+        {% block contenido %}
+        {% endblock contenido %}
+
     </main>
 
     <footer>
 
     </footer>
-    
+    <script src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>

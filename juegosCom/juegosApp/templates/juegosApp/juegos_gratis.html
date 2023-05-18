@@ -1,0 +1,37 @@
+{% extends "juegosApp/index.html" %}
+
+{% block contenido %}
+
+<section class="section-1">
+  <article class="contenido" >
+    <h1> FREE TO PLAY </h1>
+
+    <div class="juegos">
+    {% for FreeGame in FreeGames %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ FreeGame.nombre }}</h5>
+        <p class="card-text">{{ FreeGame.descripcion }}</p>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+
+
+    <div class="subtitulo">
+      <p>Publica tu juego <b>AHORA</b> <a href="{% url 'crear_juego' %}">en este enlace. </a></p>
+    </div>
+    
+    <form class="formulario" action="{% url 'buscar_juego_gratis' %}" method="POST">
+      {% csrf_token %}
+      <h4> Buscador:</h4>
+      <input type="text" name="busqueda">
+      <input type="submit" name="Buscar por genero">
+    </form>
+
+    <ul>
+
+    </ul>
+  </article>
+</section>
+{% endblock contenido %}
