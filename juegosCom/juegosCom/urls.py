@@ -23,5 +23,6 @@ from juegosCom.views import index
 urlpatterns = [
     path("", index, name='inicio'),
     path('admin/', admin.site.urls),
+    
     path("catalogo/", include("juegosApp.urls")),
 ]

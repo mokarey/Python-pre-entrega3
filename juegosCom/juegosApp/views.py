@@ -83,12 +83,10 @@ def buscar_juego(request):
     if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
-        PayGame = PayGames.objects.filter(costo__exact=busqueda)
-        
-        print("Resultados de la busqueda:", PayGame)
+        PayGame = PayGames.objects.filter(costo__exact=busqueda,)
     
     contexto = {
-            "PayGame":PayGame,
+            "PayGames":PayGame,
         }
     http_response = render(
             request=request,
@@ -102,12 +100,10 @@ def buscar_juego_gratis(request):
     if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
-        FreeGame = FreeGames.objects.filter(genero__exact=busqueda)
-        
-        print("Resultados de la busqueda:", FreeGame)
+        FreeGame = FreeGames.objects.filter(genero__contains=busqueda)
     
     contexto = {
-            "FreeGame":FreeGame,
+            "FreeGames":FreeGame,
         }
     http_response = render(
             request=request,
