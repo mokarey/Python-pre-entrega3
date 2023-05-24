@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from juegosApp.views import listar_juegos,listar_juegos_gratis , crear_juego, buscar_juego, crear_juego_gratis, buscar_juego_gratis
 
+
 urlpatterns = [
     path('juegos/', listar_juegos, name='listar_juegos'),
     path('juegos-gratis/', listar_juegos_gratis, name='listar_juegos_gratis'),
@@ -26,3 +27,4 @@ urlpatterns = [
     path('buscar-juego/', buscar_juego, name='buscar_juego'),
     path('buscar-juego-gratis/', buscar_juego_gratis, name='buscar_juego_gratis'),
 ]
+
