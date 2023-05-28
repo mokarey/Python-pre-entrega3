@@ -4,25 +4,12 @@
 <section class="section-2">
     <h1>Publica tu videojuego!</h1>
     
-    <form method="POST">
+    <form action="" method="POST">
         {% csrf_token %}
         {{ formulario.as_p }}
         {{ formulario.errors}}
-        <input type="submit" name="Enviar">
+        <input type="submit" name="Enviar"/>
     </form>
+    
 </section>
-
-{% for PayGame in PayGames %}
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{ PayGame.nombre }}</h5>
-        <p class="card-text">{{ PayGame.descripcion }}</p>
-        <h6 class="card-title">${{ PayGame.costo }}</h6>
-        <form action="{% url "eliminar_juego" PayGame.id %}" method="POST">
-          {% csrf_token %}
-          <input type="submit" value="eliminar">
-        </form>
-      </div>
-    </div>
-    {% endfor %}
 {% endblock contenido %}

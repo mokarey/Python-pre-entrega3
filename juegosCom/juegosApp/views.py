@@ -69,19 +69,19 @@ def crear_juego(request):
             lanzamiento = data["lanzamiento"]
             clasificacion = data["clasificacion"]
             costo = data["costo"]
-            juego = PayGames(nombre=nombre, descripcion=descripcion, costo=costo, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
-            juego.save()
+            PayGame= PayGames(nombre=nombre, descripcion=descripcion, costo=costo, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
+            PayGame.save()
         
-        url_exitosa = reverse('listar_juegos')
-        return redirect(url_exitosa)
+            url_exitosa = reverse('listar_juegos')
+            return redirect(url_exitosa)
     else:
         formulario = juegoForm()
-        
-        http_response = render(
-            request=request,
-            template_name='juegosApp/valid_forms.html', 
-        )
-        return http_response
+    http_response = render(
+        request=request,
+        template_name='juegosApp/valid_forms.html', 
+        context={'formulario':formulario}
+    )
+    return http_response
 
 
 # VISTAS BUSQUEDAS.
