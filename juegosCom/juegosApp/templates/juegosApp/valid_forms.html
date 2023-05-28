@@ -1,0 +1,14 @@
+{% extends "juegosApp/index.html" %}
+
+{% block contenido %}
+<section class="section-2">
+    <h1>Publica tu videojuego!</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        {{ formulario.errors}}
+        <input type="submit" name="Enviar">
+    </form>
+</section>
+{% endblock contenido %}

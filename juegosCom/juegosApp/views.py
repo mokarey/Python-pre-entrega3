@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from juegosApp.models import PayGames
 from juegosApp.models import FreeGames
+from juegosApp.forms import juegoForm
 from django.urls import reverse
 from django.shortcuts import redirect
 import os
@@ -58,22 +59,27 @@ def crear_juego_gratis(request):
 
 def crear_juego(request):
     if request.method == "POST":
-        data = request.POST
-        nombre = data["nombre"]
-        descripcion = data["descripcion"] 
-        genero = data["genero"]  
-        lanzamiento = data["lanzamiento"]
-        clasificacion = data["clasificacion"]
-        costo = data["costo"]
-        juego = PayGames.objects.create(nombre=nombre, descripcion=descripcion, costo=costo, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
-        juego.save()
+        formulario = juegoForm(request.POST)
+        
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            nombre = data["nombre"]
+            descripcion = data["descripcion"] 
+            genero = data["genero"]  
+            lanzamiento = data["lanzamiento"]
+            clasificacion = data["clasificacion"]
+            costo = data["costo"]
+            juego = PayGames(nombre=nombre, descripcion=descripcion, costo=costo, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
+            juego.save()
         
         url_exitosa = reverse('listar_juegos')
         return redirect(url_exitosa)
     else:
+        formulario = juegoForm()
         http_response = render(
             request=request,
-            template_name='juegosApp/formulario_juego.html', 
+            template_name='juegosApp/valid_forms.html', 
+            context={'formulario': formulario}
         )
         return http_response
 
@@ -97,6 +103,7 @@ def buscar_juego(request):
 
 # VISTAS BUSQUEDAS GRATIS.
 def buscar_juego_gratis(request):
+    
     if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
@@ -111,3 +118,13 @@ def buscar_juego_gratis(request):
             context=contexto,
         )
     return http_response
+
+# VISTAS ELIMINAR JUEGOS. 
+
+def eliminar_juego(request, id):
+    juego = PayGames.objects.get(id=id)
+    if request.method == "POST":
+        juego.delete()
+        
+        url_exitosa = reverse('listar_juegos')
+        return redirect(url_exitosa)
