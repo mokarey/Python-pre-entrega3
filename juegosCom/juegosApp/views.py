@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from juegosApp.models import PayGames
 from juegosApp.models import FreeGames
 from juegosApp.forms import juegoForm
@@ -76,10 +76,13 @@ def crear_juego(request):
         return redirect(url_exitosa)
     else:
         formulario = juegoForm()
+
+        juegos = PayGames.objects.all()
+        
         http_response = render(
             request=request,
             template_name='juegosApp/valid_forms.html', 
-            context={'formulario': formulario}
+            context={'formulario': formulario 'PayGames': juegos}
         )
         return http_response
 
