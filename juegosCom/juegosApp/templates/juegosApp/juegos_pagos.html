@@ -11,14 +11,16 @@
     {% for PayGame in PayGames %}
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">{{ PayGame.nombre }}</h5>
+        <h4 class="card-title">{{ PayGame.nombre }}</h4>
         <p class="card-text">{{ PayGame.descripcion }}</p>
         <h6 class="card-title">${{ PayGame.costo }}</h6>
-        <form action="{% url "eliminar_juego" PayGame.id %}" method="POST">
-          {% csrf_token %}
-          <input type="submit" value="eliminar">
-        </form>
-        <a href="{% url 'editar_juego' PayGame.id %}" method="POST">Editar</a>
+        
+        <div>
+          <a class="delete btn btn-danger" href="{% url 'eliminar_juego' PayGame.id %}" method="POST">Eliminar</a>
+          <a class="edit btn btn-primary" href="{% url 'editar_juego' PayGame.id %}" method="POST">Editar</a>
+          <a class="edit btn btn-success" href="{% url 'editar_juego' PayGame.id %}" method="POST">Comprar</a>
+        </div>
+        
       </div>
     </div>
     {% endfor %}
@@ -31,7 +33,7 @@
     
     <form class="formulario" action="{% url 'buscar_juego' %}" method="POST">
       {% csrf_token %}
-      <h4> Buscador:</h4>
+      <h4> Buscador por precios:</h4>
       <input type="text" name="busqueda">
       <input type="submit" name="Buscar por costo">
     </form>

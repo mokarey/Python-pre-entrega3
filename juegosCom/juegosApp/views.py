@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from juegosApp.models import PayGames
 from juegosApp.models import FreeGames
-from juegosApp.forms import juegoForm
+from juegosApp.forms import juegoForm, juegoGratisForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -37,23 +37,28 @@ def listar_juegos_gratis(request):
 @login_required
 def crear_juego_gratis(request):
     if request.method == "POST":
-        data = request.POST
-        nombre = data["nombre"]
-        descripcion = data["descripcion"] 
-        genero = data["genero"]  
-        lanzamiento = data["lanzamiento"]
-        clasificacion = data["clasificacion"]
-        juego = FreeGames.objects.create(nombre=nombre, descripcion=descripcion, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
-        juego.save()
+        formulario = juegoGratisForm(request.POST)
         
-        url_exitosa = reverse('listar_juegos_gratis')
-        return redirect(url_exitosa)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            nombre = data["nombre"]
+            descripcion = data["descripcion"] 
+            genero = data["genero"]  
+            lanzamiento = data["lanzamiento"]
+            clasificacion = data["clasificacion"]
+            FreeGame= FreeGames(nombre=nombre, descripcion=descripcion, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
+            FreeGame.save()
+        
+            url_exitosa = reverse('listar_juegos_gratis')
+            return redirect(url_exitosa)
     else:
-        http_response = render(
-            request=request,
-            template_name='juegosApp/formulario_gratis.html', 
-        )
-        return http_response
+        formulario = juegoGratisForm()
+    http_response = render(
+        request=request,
+        template_name='juegosApp/valid_forms_gratis.html', 
+        context={'formulario':formulario}
+    )
+    return http_response
 
 # VISTA FORMULARIOS JUEGOS PAGOS.
 @login_required
@@ -128,6 +133,28 @@ def eliminar_juego(request, id):
         
         url_exitosa = reverse('listar_juegos')
         return redirect(url_exitosa)
+    
+    return render(
+        request=request,
+        template_name='juegosApp/confirm_delete.html', 
+        context={'juego':juego}
+    )
+
+# VISTAS ELIMINAR JUEGOS GRATIS. 
+@login_required
+def eliminar_juego_gratis(request, id):
+    juego = FreeGames.objects.get(id=id)
+    if request.method == "POST":
+        juego.delete()
+        
+        url_exitosa = reverse('listar_juegos_gratis')
+        return redirect(url_exitosa)
+    
+    return render(
+        request=request,
+        template_name='juegosApp/confirm_delete_gratis.html', 
+        context={'juego':juego}
+    )
 
 # VISTAS EDITAR JUEGOS. 
 @login_required
@@ -159,7 +186,38 @@ def editar_juego(request, id):
         formulario = juegoForm(initial=inicial)
     return render(
         request=request,
-        template_name='juegosApp/valid_forms.html', 
+        template_name='juegosApp/editar_juego.html', 
         context={'formulario':formulario}
     )
     
+# VISTAS EDITAR JUEGOS GRATIS. 
+@login_required
+def editar_juego_gratis(request, id):
+    FreeGame = FreeGames.objects.get(id=id) 
+    if request.method == "POST":
+        formulario = juegoGratisForm(request.POST)
+        
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            FreeGame.nombre = data["nombre"]
+            FreeGame.descripcion = data["descripcion"] 
+            FreeGame.genero = data["genero"]  
+            FreeGame.lanzamiento = data["lanzamiento"]
+            FreeGame.clasificacion = data["clasificacion"]
+            FreeGame.save()
+            url_exitosa = reverse('listar_juegos_gratis')
+            return redirect(url_exitosa)
+    else:
+        inicial = {
+            'nombre' : FreeGame.nombre,
+            'descripcion' : FreeGame.descripcion,
+            'genero' : FreeGame.genero, 
+            'lanzamiento' : FreeGame.lanzamiento,
+            'clasificacion' : FreeGame.clasificacion,
+            }
+        formulario = juegoGratisForm(initial=inicial)
+    return render(
+        request=request,
+        template_name='juegosApp/editar_juego_gratis.html', 
+        context={'formulario':formulario}
+    )

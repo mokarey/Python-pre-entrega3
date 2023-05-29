@@ -28,6 +28,11 @@ header{
     display: flex;
 }
 
+.nav h1{
+    margin: 50px 20px 20px 50px;
+
+}
+
 .nav .navbar{
     margin: 50px;
 }
@@ -145,7 +150,7 @@ header{
 }
 
 
-.section-1 .contenido .juegos h5{
+.section-1 .contenido .juegos h4{
     color: #ffffff;
 }
 
@@ -169,8 +174,9 @@ header{
     text-align: left;
 }
 
-.section-1 .contenido .juegos .card a{
+.section-1 .contenido .juegos .card div a{
     margin-top: 10px;
+    margin-right: 2px;
     
 }
 
@@ -190,17 +196,126 @@ header{
 }
 
 .section-2 h1{
-    font-size: 5rem;
-    margin: 30px;
+    font-size: 4rem;
+    margin: 0px;
     color: black;
     align-self: center;
 }
 
-.section-2 form{
-    position: relative;
-    left: -100px;
+/*-----------------------------------------CREAR JUEGOS------------------------------------------------*/
+
+
+.section-3{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 700px;
+    width: 100%;
 }
 
-.section-2 form{
+.section-3 div{
+    margin: 30px 0px 30px 30px;
+
+}
+
+.section-3 h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.section-3 form{
     margin-bottom: 10px;
+    position: relative;
+}
+
+.section-3 form .btn-light{
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.section-3 .form-group{
+    margin: 15px 0px 15px 0px;
+}
+
+
+.section-3 .form-group label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+
+.section-3 .form-group-desc{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 15px 0px 15px 0px;
+}
+
+.section-3 .form-group-desc label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/*-----------------------------------------EDITAR JUEGOS------------------------------------------------*/
+
+.section-4{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(174, 209, 241);
+    height: 800px;
+    width: 100%;
+}
+
+.section-4 div{
+    margin: 30px 0px 30px 30px;
+
+}
+
+.section-4 h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.section-4 form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section-4 form .btn-light{
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.section-4 .form-group{
+    margin: 15px 0px 15px 0px;
+}
+
+
+.section-4 .form-group label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+
+.section-4 .form-group-desc{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 10px 0px 10px 0px;
+}
+
+.section-4 .form-group-desc label{
+    font-size: 20px;
+    margin: 10px 0px 10px 0px;
+
+}
+
+/*-----------------------------------------BORRAR JUEGOS------------------------------------------------*/
+
+
+.section-delete form{
+    display: flex;
+    flex-direction: column;
 }

@@ -1,0 +1,16 @@
+{% extends "juegosApp/index.html" %}
+
+{% block contenido %}
+
+<section class="section-delete">
+    <h4>Confirmar borrado</h4>
+    <p>¿Estás seguro de que deseas borrar el artículo?</p>
+
+    <form method="POST" action="{% url 'eliminar_juego_gratis' juego.id %}">
+        {% csrf_token %}
+    
+        <input type="submit" value="Confirmar"/>
+    </form>
+</section>
+
+{% endblock contenido %}

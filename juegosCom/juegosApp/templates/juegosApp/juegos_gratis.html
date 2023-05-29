@@ -10,8 +10,13 @@
     {% for FreeGame in FreeGames %}
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">{{ FreeGame.nombre }}</h5>
+        <h4 class="card-title">{{ FreeGame.nombre }}</h4>
         <p class="card-text">{{ FreeGame.descripcion }}</p>
+      </div>
+      <div>
+        <a class="delete btn btn-danger" href="{% url 'eliminar_juego_gratis' FreeGame.id %}" method="POST">Eliminar</a>
+        <a class="edit btn btn-primary" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Editar</a>
+        <a class="edit btn btn-success" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Comprar</a>
       </div>
     </div>
     {% endfor %}
@@ -19,7 +24,7 @@
 
 
     <div class="subtitulo">
-      <p>Publica tu juego <b>AHORA</b> <a href="{% url 'crear_juego' %}">en este enlace. </a></p>
+      <p>Publica tu juego <b>AHORA</b> <a href="{% url 'crear_juego_gratis' %}">en este enlace. </a></p>
     </div>
     
     <form class="formulario" action="{% url 'buscar_juego_gratis' %}" method="POST">
