@@ -3,6 +3,7 @@ from django.urls import reverse
 from juegosApp.models import PayGames
 from juegosApp.models import FreeGames
 from juegosApp.forms import juegoForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -33,7 +34,7 @@ def listar_juegos_gratis(request):
     return http_response
 
 # VISTA FORMULARIOS JUEGOS GRATIS.
-
+@login_required
 def crear_juego_gratis(request):
     if request.method == "POST":
         data = request.POST
@@ -55,7 +56,7 @@ def crear_juego_gratis(request):
         return http_response
 
 # VISTA FORMULARIOS JUEGOS PAGOS.
-
+@login_required
 def crear_juego(request):
     if request.method == "POST":
         formulario = juegoForm(request.POST)
@@ -119,7 +120,7 @@ def buscar_juego_gratis(request):
     return http_response
 
 # VISTAS ELIMINAR JUEGOS. 
-
+@login_required
 def eliminar_juego(request, id):
     juego = PayGames.objects.get(id=id)
     if request.method == "POST":
@@ -129,7 +130,7 @@ def eliminar_juego(request, id):
         return redirect(url_exitosa)
 
 # VISTAS EDITAR JUEGOS. 
-
+@login_required
 def editar_juego(request, id):
     PayGame = PayGames.objects.get(id=id) 
     if request.method == "POST":

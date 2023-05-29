@@ -30,6 +30,7 @@ def registro(request):
 # LOGIN VIEW.
 
 def login_view(request):
+   next_url = request.GET.get('next')
    if request.method == "POST":
        form = AuthenticationForm(request, data=request.POST)
 
@@ -38,18 +39,20 @@ def login_view(request):
            usuario = data.get('username')
            password = data.get('password')
            user = authenticate(username=usuario, password=password)
-
+           # user puede ser un usuario o None
            if user:
                login(request=request, user=user)
+               if next_url:
+                   return redirect(next_url)
                url_exitosa = reverse('inicio')
                return redirect(url_exitosa)
-   else:
+   else:  # GET
        form = AuthenticationForm()
    return render(
        request=request,
        template_name='perfiles/login.html',
        context={'form': form},
-   )
+       )
 
 # LOGOUT VIEW.
 
