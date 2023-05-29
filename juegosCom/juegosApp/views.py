@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from juegosApp.models import PayGames
 from juegosApp.models import FreeGames
 from juegosApp.forms import juegoForm
-from django.urls import reverse
-from django.shortcuts import redirect
-import os
+
 # Create your views here.
 
 # VISTA JUEGOS PAGOS.
@@ -128,3 +127,38 @@ def eliminar_juego(request, id):
         
         url_exitosa = reverse('listar_juegos')
         return redirect(url_exitosa)
+
+# VISTAS EDITAR JUEGOS. 
+
+def editar_juego(request, id):
+    PayGame = PayGames.objects.get(id=id) 
+    if request.method == "POST":
+        formulario = juegoForm(request.POST)
+        
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            PayGame.nombre = data["nombre"]
+            PayGame.descripcion = data["descripcion"] 
+            PayGame.genero = data["genero"]  
+            PayGame.lanzamiento = data["lanzamiento"]
+            PayGame.clasificacion = data["clasificacion"]
+            PayGame.costo = data["costo"]
+            PayGame.save()
+            url_exitosa = reverse('listar_juegos')
+            return redirect(url_exitosa)
+    else:
+        inicial = {
+            'nombre' : PayGame.nombre,
+            'descripcion' : PayGame.descripcion,
+            'genero' : PayGame.genero, 
+            'lanzamiento' : PayGame.lanzamiento,
+            'clasificacion' : PayGame.clasificacion,
+            'costo' : PayGame.costo,
+            }
+        formulario = juegoForm(initial=inicial)
+    return render(
+        request=request,
+        template_name='juegosApp/valid_forms.html', 
+        context={'formulario':formulario}
+    )
+    

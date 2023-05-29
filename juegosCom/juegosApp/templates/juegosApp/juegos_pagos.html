@@ -18,6 +18,7 @@
           {% csrf_token %}
           <input type="submit" value="eliminar">
         </form>
+        <a href="{% url 'editar_juego' PayGame.id %}" method="POST">Editar</a>
       </div>
     </div>
     {% endfor %}

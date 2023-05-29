@@ -169,6 +169,11 @@ header{
     text-align: left;
 }
 
+.section-1 .contenido .juegos .card a{
+    margin-top: 10px;
+    
+}
+
 /*FORMULARIO*/
 
 .section-2{
