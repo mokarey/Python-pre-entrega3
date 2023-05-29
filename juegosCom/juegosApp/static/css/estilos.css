@@ -8,6 +8,10 @@
 
 /*---------------------------------CSS--------------------------*/
 
+.flex{
+    display: flex;
+}
+
 header{
     width: 100%;
     background-color: rgb(29, 29, 29);
@@ -160,6 +164,8 @@ header{
 
 .section-1 .contenido .juegos h6{
     color: #ffffff;
+    font-size: 2px;
+    font-weight: 500;
 }
 
 
@@ -178,6 +184,19 @@ header{
     margin-top: 10px;
     margin-right: 2px;
     
+}
+
+.section-1 .contenido .juegos .card .card-body .genero {
+    color: rgb(253, 228, 2);
+}
+
+.section-1 .contenido .juegos .card .card-body .date {
+    color: rgb(207, 207, 207);
+}
+
+.section-1 .contenido .juegos .card .card-body .costo{
+    color: rgb(207, 207, 207);
+    font-size: 25px;
 }
 
 /*FORMULARIO*/
@@ -318,4 +337,125 @@ header{
 .section-delete form{
     display: flex;
     flex-direction: column;
+}
+
+/*-----------------------------------------REGISTRO------------------------------------------------*/
+.register{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.register .titles{
+    margin: 30px 0px 0px 30px;
+}
+
+.register .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.register .titles h6{
+    margin-top: 20px;
+    color: black;
+    width: 400px;
+}
+
+.register form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.register form .btn-light{
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.register .form-group{
+    margin: 15px 0px 0px 30px;
+}
+
+
+.register .form-group .form-label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.register form .input{
+    margin: 15px 0px 0px 30px;
+    font-size: 20px;
+    border: 1px solid white;
+
+}
+
+/*-------------------------------------------LOGIN------------------------------------------------*/
+
+.login{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.login .titles{
+    margin: 30px 0px 0px 30px;
+}
+
+.login .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.login form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.login .form-group{
+    margin: 15px 0px 0px 30px;
+}
+
+
+.login .form-group .form-label{
+    font-size: 25px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.login form .btn{
+    margin: 20px 0px 0px 30px;
+    font-size: 20px;
+    border: 1px solid white;
+
+}
+
+/*-------------------------------------------LOGOUT------------------------------------------------*/
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.logout .titles{
+    margin: 30px 0px 0px 30px;
+}
+
+.logout .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.logout .titles h3{
+    font-size: 3rem;
+    margin: 0px;
+    color: black;
 }

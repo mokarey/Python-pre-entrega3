@@ -24,7 +24,7 @@ def registro(request):
    return render(
        request=request,
        template_name='perfiles/registro.html',
-       context={'form': formulario},
+       context={'formulario': formulario},
    )
 
 # LOGIN VIEW.

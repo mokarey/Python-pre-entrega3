@@ -11,13 +11,16 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h4 class="card-title">{{ FreeGame.nombre }}</h4>
+        <p class="card-text genero">{{ FreeGame.genero }}</p>
         <p class="card-text">{{ FreeGame.descripcion }}</p>
+        <p class="date card-text">{{ FreeGame.lanzamiento }}</p>
+        <div>
+          <a class="delete btn btn-danger" href="{% url 'eliminar_juego_gratis' FreeGame.id %}" method="POST">Eliminar</a>
+          <a class="edit btn btn-primary" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Editar</a>
+          <a class="edit btn btn-success" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Comprar</a>
+        </div>
       </div>
-      <div>
-        <a class="delete btn btn-danger" href="{% url 'eliminar_juego_gratis' FreeGame.id %}" method="POST">Eliminar</a>
-        <a class="edit btn btn-primary" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Editar</a>
-        <a class="edit btn btn-success" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Comprar</a>
-      </div>
+      
     </div>
     {% endfor %}
     </div>
@@ -29,7 +32,7 @@
     
     <form class="formulario" action="{% url 'buscar_juego_gratis' %}" method="POST">
       {% csrf_token %}
-      <h4> Buscador:</h4>
+      <h4> Buscador por genero:</h4>
       <input type="text" name="busqueda">
       <input type="submit" name="Buscar por genero">
     </form>

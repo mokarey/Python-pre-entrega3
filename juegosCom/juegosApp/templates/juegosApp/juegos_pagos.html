@@ -12,9 +12,10 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h4 class="card-title">{{ PayGame.nombre }}</h4>
+        <p class="card-text genero">{{ PayGame.genero }}</p>
         <p class="card-text">{{ PayGame.descripcion }}</p>
-        <h6 class="card-title">${{ PayGame.costo }}</h6>
-        
+        <p class="date card-text">{{ PayGame.lanzamiento }}</p>
+        <h6 class="card-title costo">${{ PayGame.costo }}</h6>
         <div>
           <a class="delete btn btn-danger" href="{% url 'eliminar_juego' PayGame.id %}" method="POST">Eliminar</a>
           <a class="edit btn btn-primary" href="{% url 'editar_juego' PayGame.id %}" method="POST">Editar</a>
