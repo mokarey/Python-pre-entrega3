@@ -2,49 +2,51 @@
 
 {% block content %}
     <section class="register">
-        <div class="titles">
-            <h1>Registro.</h1|>
-            <h6>Regístrate en JuegosCom hoy mismo! Unite a nuestra comunidad vibrante, donde vas a encontrar los mejores precios.</h6>  
-        </div>
+        <div class="card">
+            <div class="titles">
+                <h1>Registro.</h1|>
+                <h6>Regístrate en JuegosCom hoy mismo! Unite a nuestra comunidad vibrante, donde vas a encontrar los mejores precios.</h6>  
+            </div>
 
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                
-                
+            <div>
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    
+                        <div class="form-group">
+                            <label class="form-label" for="id_last_name">Apellido:</label>
+                            {{ formulario.last_name }}
+                        </div>
+                    
+                        <div class="form-group">
+                            <label class="form-label" for="id_first_name">Nombre:</label>
+                            {{ formulario.first_name }}
+                        </div>
+                    
+                    
                     <div class="form-group">
-                        <label class="form-label" for="id_last_name">Apellido:</label>
-                        {{ formulario.last_name }}
+                        <label class="form-label" for="id_username">Nombre de usuario:</label>
+                        {{ formulario.username }}
                     </div>
-                
+                    
                     <div class="form-group">
-                        <label class="form-label" for="id_first_name">Nombre:</label>
-                        {{ formulario.first_name }}
+                        <label class="form-label" for="id_email">Correo electrónico:</label>
+                        {{ formulario.email }}
                     </div>
-                
-                
-                <div class="form-group">
-                    <label class="form-label" for="id_username">Nombre de usuario:</label>
-                    {{ formulario.username }}
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="id_email">Correo electrónico:</label>
-                    {{ formulario.email }}
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="id_password1">Contraseña:</label>
-                    {{ formulario.password1 }}
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="id_password2">Confirmar contraseña:</label>
-                    {{ formulario.password2 }}
-                </div>
-                
-                <input class="input btn btn-dark" type="submit" value="Registrarse" />
-            </form>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_password1">Contraseña:</label>
+                        {{ formulario.password1 }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_password2">Confirmar contraseña:</label>
+                        {{ formulario.password2 }}
+                    </div>
+                    
+                    <input class="input btn btn-dark" type="submit" value="Registrarse" />
+                </form>
+            </div>
         </div>
     </section>
 {% endblock content %}

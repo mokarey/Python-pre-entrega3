@@ -3,14 +3,19 @@
 {% block content %}
 
 <section class="section-delete">
-    <h4>Confirmar borrado</h4>
-    <p>¿Estás seguro de que deseas borrar el artículo?</p>
+    <div class="card">
+        <div class="titles">
+            <h1>Confirmar borrado</h1>
+            <h3>¿Estás seguro de que deseas borrar el artículo?</h3>
+        </div>
+        
 
-    <form method="POST" action="{% url 'eliminar_juego' juego.id %}">
-        {% csrf_token %}
-    
-        <input type="submit" value="Confirmar"/>
-    </form>
+        <form method="POST" action="{% url 'eliminar_juego' juego.id %}">
+            {% csrf_token %}
+        
+            <input class="btn btn-danger" type="submit" value="Confirmar"/>
+        </form>
+    </div>
 </section>
 
 {% endblock content %}

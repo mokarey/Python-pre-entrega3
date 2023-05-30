@@ -3,24 +3,26 @@
 {% block content %}
 
 <section class="login">
-    <div class="titles">
-        <h1>Iniciar sesion</h1>
-    </div>
-    <div>
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label class="form-label" for="id_last_name">Usuario:</label>
-                {{ form.username }}
-            </div>
-        
-            <div class="form-group">
-                <label class="form-label" for="id_first_name">Contraseña:</label>
-                {{ form.password }}
-            </div>
+    <div class="card">
+        <div class="titles">
+            <h1>Iniciar sesion</h1>
+        </div>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="form-label" for="id_last_name">Usuario:</label>
+                    {{ form.username }}
+                </div>
+            
+                <div class="form-group">
+                    <label class="form-label" for="id_first_name">Contraseña:</label>
+                    {{ form.password }}
+                </div>
 
-            <input class="btn btn-dark" type="submit" value="Iniciar Sesión" />
-        </form>
+                <input class="btn btn-dark" type="submit" value="Iniciar Sesión" />
+            </form>
+        </div>
     </div>
 </section>
     

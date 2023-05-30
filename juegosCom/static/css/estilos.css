@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+  }
+
+/*---------------------------------CSS--------------------------*/
+
+.flex{
+    display: flex;
+}
+
+header{
+    width: 100%;
+    background-color: rgb(29, 29, 29);
+    height: 125px;
+}
+
+.h1{
+    font-weight: 200;
+    font-size: 3rem;
+    font-family:sans-serif;
+    margin: 30px 30px 30px 50px;
+    color: rgba(255, 255, 255, 0.8);
+
+
+}
+
+.nav{
+    display: flex;
+}
+
+.nav h1{
+    margin: 50px 20px 20px 50px;
+
+}
+
+.nav .navbar{
+    margin: 50px;
+}
+
+.nav .navbar a{
+    padding-bottom: 3px;
+    margin: 0px 20px 20px 100px;
+    font-size: 20px;
+    font-family:sans-serif;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: 0.25s;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.nav .navbar a:hover{
+    color: rgb(192, 192, 192);
+    border-bottom: 2px solid rgb(199, 199, 199);
+}
+
+
+.wrapper{
+    margin: 0%;
+    height: 800px;
+    background-size: cover;
+    background-image: url(../images/carousel-background.jpg);
+}
+
+.carousel{
+    position: relative;
+    max-width: 64rem;
+    margin: 0 auto;
+    top: 100px;
+}
+
+.carousel .slider:hover{
+    transform: scale(1.05);
+}
+ 
+.carousel .slider{
+    aspect-ratio: 16/9;
+    display: flex;
+    overflow: hidden;
+    scroll-snap-type: none;
+    scroll-behavior: smooth;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.3);
+    transition: 1s;
+
+}
+  
+.carousel .slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    position: relative; 
+}
+
+.carousel .slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+.carousel .slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+  }
+  
+.carousel .slider-nav a:hover{
+    opacity: 1;
+  }
+
+.section-1{
+    width: 100%;
+    height: 800px;
+    background-color: rgb(175, 174, 241);
+}
+
+.section-1 .contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-1 .contenido h1{
+    font-size: 5rem;
+    margin: 30px;
+    color: black;
+    align-self: center;
+}
+
+.section-1 .contenido .juegos{
+    display: flex;
+    justify-content: center;
+}
+
+.section-1 .contenido .juegos .card{
+    background-color: rgb(31, 31, 31);
+    align-self: center;
+    margin: 20px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+    transition: 1s;
+}
+
+.section-1 .contenido .juegos .card:hover{
+    transform: scale(1.1);
+}
+
+
+.section-1 .contenido .juegos h4{
+    color: #ffffff;
+}
+
+.section-1 .contenido .juegos p{
+    color: #ffffff;
+}
+
+.section-1 .contenido .juegos h6{
+    color: #ffffff;
+    font-size: 2px;
+    font-weight: 500;
+}
+
+
+.section-1 .contenido .subtitulo{
+    margin: 20px;
+    font-size: 30px;
+    color: black;
+
+}
+
+.section-1 .contenido .formulario{ 
+    text-align: left;
+}
+
+.section-1 .contenido .juegos .card div a{
+    margin-top: 10px;
+    margin-right: 2px;
+    
+}
+
+.section-1 .contenido .juegos .card .card-body .genero {
+    color: rgb(253, 228, 2);
+}
+
+.section-1 .contenido .juegos .card .card-body .date {
+    color: rgb(207, 207, 207);
+}
+
+.section-1 .contenido .juegos .card .card-body .costo{
+    color: rgb(207, 207, 207);
+    font-size: 25px;
+}
+
+/*FORMULARIO*/
+
+.section-2{
+    width: 100%;
+    height: 700px;
+    background-color: rgb(174, 209, 241);
+}
+
+.section-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-2 h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+    align-self: center;
+}
+
+/*-----------------------------------------CREAR JUEGOS------------------------------------------------*/
+
+
+.section-3{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 700px;
+    width: 100%;
+}
+
+.section-3 div{
+    margin: 30px 0px 30px 30px;
+
+}
+
+.section-3 h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.section-3 form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section-3 form .btn-light{
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.section-3 .form-group{
+    margin: 15px 0px 15px 0px;
+}
+
+
+.section-3 .form-group label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+
+.section-3 .form-group-desc{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 15px 0px 15px 0px;
+}
+
+.section-3 .form-group-desc label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/*-----------------------------------------EDITAR JUEGOS------------------------------------------------*/
+
+.section-4{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(174, 209, 241);
+    height: 800px;
+    width: 100%;
+}
+
+.section-4 div{
+    margin: 30px 0px 30px 30px;
+
+}
+
+.section-4 h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.section-4 form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section-4 form .btn-light{
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.section-4 .form-group{
+    margin: 15px 0px 15px 0px;
+}
+
+
+.section-4 .form-group label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+
+.section-4 .form-group-desc{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 10px 0px 10px 0px;
+}
+
+.section-4 .form-group-desc label{
+    font-size: 20px;
+    margin: 10px 0px 10px 0px;
+
+}
+
+/*-----------------------------------------BORRAR JUEGOS------------------------------------------------*/
+
+
+.section-delete form{
+    display: flex;
+    flex-direction: column;
+}
+
+/*-----------------------------------------REGISTRO------------------------------------------------*/
+.register{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.register .titles{
+    margin: 30px 0px 0px 30px;
+}
+
+.register .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.register .titles h6{
+    margin-top: 20px;
+    color: black;
+    width: 400px;
+}
+
+.register form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.register form .btn-light{
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.register .form-group{
+    margin: 15px 0px 0px 30px;
+}
+
+
+.register .form-group .form-label{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.register form .input{
+    margin: 15px 0px 0px 30px;
+    font-size: 20px;
+    border: 1px solid white;
+
+}
+
+/*-------------------------------------------LOGIN------------------------------------------------*/
+
+.login{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.login .titles{
+    margin: 30px 0px 0px 30px;
+}
+
+.login .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.login form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.login .form-group{
+    margin: 15px 0px 0px 30px;
+}
+
+
+.login .form-group .form-label{
+    font-size: 25px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.login form .btn{
+    margin: 20px 0px 0px 30px;
+    font-size: 20px;
+    border: 1px solid white;
+
+}
+
+/*-------------------------------------------LOGOUT------------------------------------------------*/
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.logout .card{
+    width: 400px;
+    height: 350px;
+    margin: 30px;
+    background-color: rgb(146, 145, 219);
+}
+
+.logout .titles{
+    margin: 30px 0px 0px 30px;
+}
+
+.logout .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: rgb(202, 202, 202);
+}
+
+.logout .titles h3{
+    font-size: 3rem;
+    margin: 0px;
+    color: black;
+}
+
+/*-------------------------------------------CONFIRM-DELETE------------------------------------------------*/
+
+.section-delete{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.section-delete .card{
+    width: 700px;
+    height: 350px;
+    margin: 30px;
+    background-color: rgb(146, 145, 219);
+}
+
+.section-delete .titles{
+    margin: 40px 0px 0px 30px;
+}
+
+.section-delete .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.section-delete .titles h3{
+    font-size: 2rem;
+    margin: 10px 20px 10px 0px;
+    color: black;
+}
+
+.section-delete form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section-delete form .btn{
+    margin: 20px 0px 0px 30px;
+    font-size: 20px;
+    border: 1px solid white;
+    width: 150px;
+    border: rgb(231, 113, 113) 4px solid;
+}
