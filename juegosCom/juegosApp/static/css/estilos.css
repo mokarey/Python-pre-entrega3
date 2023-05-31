@@ -551,11 +551,11 @@ header{
     background-color: rgb(146, 145, 219);
 }
 
-.login .titles{
+.perfil .titles{
     margin: 30px 0px 0px 30px;
 }
 
-.login .titles h1{
+.perfil.titles h1{
     font-size: 4rem;
     margin: 0px;
     color: black;
