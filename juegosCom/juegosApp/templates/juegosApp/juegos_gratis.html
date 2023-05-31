@@ -15,8 +15,12 @@
         <p class="card-text">{{ FreeGame.descripcion }}</p>
         <p class="date card-text">{{ FreeGame.lanzamiento }}</p>
         <div>
+          {% if user == FreeGame.creador %}
           <a class="delete btn btn-danger" href="{% url 'eliminar_juego_gratis' FreeGame.id %}" method="POST">Eliminar</a>
+          {% endif %}
+          {% if user == FreeGame.creador %}
           <a class="edit btn btn-primary" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Editar</a>
+          {% endif %}
           <a class="edit btn btn-success" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Comprar</a>
         </div>
       </div>

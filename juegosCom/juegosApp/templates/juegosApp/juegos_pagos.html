@@ -17,8 +17,12 @@
         <p class="date card-text">{{ PayGame.lanzamiento }}</p>
         <h6 class="card-title costo">${{ PayGame.costo }}</h6>
         <div>
+          {% if user == PayGame.creador %}
           <a class="delete btn btn-danger" href="{% url 'eliminar_juego' PayGame.id %}" method="POST">Eliminar</a>
+          {% endif %}
+          {% if user == PayGame.creador %}
           <a class="edit btn btn-primary" href="{% url 'editar_juego' PayGame.id %}" method="POST">Editar</a>
+          {% endif %}
           <a class="edit btn btn-success" href="{% url 'editar_juego' PayGame.id %}" method="POST">Comprar</a>
         </div>
         

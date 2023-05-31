@@ -46,7 +46,8 @@ def crear_juego_gratis(request):
             genero = data["genero"]  
             lanzamiento = data["lanzamiento"]
             clasificacion = data["clasificacion"]
-            FreeGame= FreeGames(nombre=nombre, descripcion=descripcion, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
+            creador = request.user
+            FreeGame= FreeGames(nombre=nombre, descripcion=descripcion, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero, creador=creador)
             FreeGame.save()
         
             url_exitosa = reverse('listar_juegos_gratis')
@@ -74,7 +75,8 @@ def crear_juego(request):
             lanzamiento = data["lanzamiento"]
             clasificacion = data["clasificacion"]
             costo = data["costo"]
-            PayGame= PayGames(nombre=nombre, descripcion=descripcion, costo=costo, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero)
+            creador = request.user
+            PayGame= PayGames(nombre=nombre, descripcion=descripcion, costo=costo, lanzamiento=lanzamiento, clasificacion=clasificacion, genero=genero, creador=creador)
             PayGame.save()
         
             url_exitosa = reverse('listar_juegos')
