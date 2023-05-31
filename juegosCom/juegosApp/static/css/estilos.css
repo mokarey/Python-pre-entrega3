@@ -531,3 +531,55 @@ header{
     width: 150px;
     border: rgb(231, 113, 113) 4px solid;
 }
+
+
+
+
+
+
+.perfil{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 174, 241);
+    height: 850px;
+    width: 100%;
+}
+
+.perfil .card .icon img{
+    width: 200px;
+    margin: 30px;
+    background-color: rgb(146, 145, 219);
+}
+
+.login .titles{
+    margin: 30px 0px 0px 30px;
+}
+
+.login .titles h1{
+    font-size: 4rem;
+    margin: 0px;
+    color: black;
+}
+
+.login form{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.login .form-group{
+    margin: 15px 0px 0px 30px;
+}
+
+
+.login .form-group .form-label{
+    font-size: 25px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.login form .btn{
+    margin: 20px 0px 0px 30px;
+    font-size: 20px;
+    border: 1px solid rgb(0, 0, 0);
+
+}

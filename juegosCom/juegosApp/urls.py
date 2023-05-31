@@ -17,8 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from juegosApp.views import listar_juegos,listar_juegos_gratis , crear_juego, buscar_juego, crear_juego_gratis, buscar_juego_gratis, eliminar_juego, editar_juego, editar_juego_gratis, eliminar_juego_gratis
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('juegos/', listar_juegos, name='listar_juegos'),
@@ -33,5 +32,4 @@ urlpatterns = [
     path('editar-juego-gratis/<int:id>/', editar_juego_gratis, name='editar_juego_gratis'),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
