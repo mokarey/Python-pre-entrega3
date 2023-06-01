@@ -79,7 +79,7 @@ def agregar_avatar(request):
           avatar = formulario.save(commit=False)
           avatar.user = request.user
           avatar.save()
-          url_exitosa = reverse('inicio')
+          url_exitosa = reverse('editar_perfil')
           return redirect(url_exitosa)
   else:  # GET
       formulario = AvatarFormulario()
@@ -87,4 +87,17 @@ def agregar_avatar(request):
       request=request,
       template_name="perfiles/avatar_formulario.html",
       context={'form': formulario},
+  )
+
+def eliminar_avatar(request):
+    if request.method == "POST":
+        avatar = Avatar.objects.get(user=request.user)
+        avatar.delete()
+        url_exitosa = reverse('editar_perfil')
+        return redirect(url_exitosa)
+    else:
+          return render(
+      request=request,
+      template_name="perfiles/avatar_formulario.html",
+      context={'avatar': avatar},
   )
