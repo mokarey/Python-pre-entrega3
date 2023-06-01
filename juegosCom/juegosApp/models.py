@@ -37,3 +37,8 @@ class FreeGames(models.Model):
 
     def __str__(self):
         return f'{self.nombre}'
+    
+class Carrito(models.Model):
+    cantidad_articulos = models.PositiveIntegerField(default=0)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    costo_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
