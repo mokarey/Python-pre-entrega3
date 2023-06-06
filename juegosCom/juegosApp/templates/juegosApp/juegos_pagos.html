@@ -1,7 +1,7 @@
-{% extends "juegosApp/index.html" %}
+{% extends "perfiles/index.html" %}
 {% load static %}
 
-{% block contenido %}
+{% block content %}
 
 <section class="section-1">
   <article class="contenido" >
@@ -13,8 +13,7 @@
       <div class="card-body">
         <h4 class="card-title">{{ PayGame.nombre }}</h4>
         <p class="card-text genero">{{ PayGame.genero }}</p>
-        <p class="card-text">{{ PayGame.descripcion }}</p>
-        <p class="date card-text">{{ PayGame.lanzamiento }}</p>
+        <a class="" href="{% url 'mostrar_juego' PayGame.id %}">Ver mas.</a>
         <h6 class="card-title costo">${{ PayGame.costo }}</h6>
         <div>
           {% if user == PayGame.creador %}
@@ -48,4 +47,4 @@
     </ul>
   </article>
 </section>
-{% endblock contenido %}
+{% endblock content %}

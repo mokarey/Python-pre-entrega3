@@ -1,0 +1,31 @@
+{% extends "perfiles/index.html" %}
+{% block content %}
+<section class="section-1">
+    <article class="contenido" >
+      <h1> {{ FreeGame.nombre }} </h1>
+  
+      <div class="juegos">
+      
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h4 class="card-title">{{ FreeGame.nombre }}</h4>
+          <p class="date card-text">+{{ FreeGame.clasificacion }}</p>
+          <p class="card-text genero">{{ FreeGame.genero }}</p>
+          <p class="card-text">{{ FreeGame.descripcion }}</p>
+          <p class="date card-text">{{ FreeGame.lanzamiento }}</p>
+          <div>
+            {% if user == FreeGame.creador %}
+            <a class="delete btn btn-danger" href="{% url 'eliminar_juego_gratis' FreeGame.id %}" method="POST">Eliminar</a>
+            {% endif %}
+            {% if user == FreeGame.creador %}
+            <a class="edit btn btn-primary" href="{% url 'editar_juego_gratis' FreeGame.id %}" method="POST">Editar</a>
+            {% endif %}
+            <a class="edit btn btn-success" href="#" method="POST">Comprar</a>
+          </div>
+          
+        </div>
+      </div>
+      
+    </article>
+  </section>
+{% endblock content %}

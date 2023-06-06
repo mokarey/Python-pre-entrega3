@@ -1,6 +1,6 @@
-{% extends "juegosApp/index.html" %}
+{% extends "perfiles/index.html" %}
 
-{% block contenido %}
+{% block content %}
 
 <section class="section-1">
   <article class="contenido" >
@@ -14,6 +14,7 @@
         <p class="card-text genero">{{ FreeGame.genero }}</p>
         <p class="card-text">{{ FreeGame.descripcion }}</p>
         <p class="date card-text">{{ FreeGame.lanzamiento }}</p>
+        <a class="" href="{% url 'mostrar_juego_gratis' FreeGame.id %}">Ver mas.</a>
         <div>
           {% if user == FreeGame.creador %}
           <a class="delete btn btn-danger" href="{% url 'eliminar_juego_gratis' FreeGame.id %}" method="POST">Eliminar</a>
@@ -46,4 +47,4 @@
     </ul>
   </article>
 </section>
-{% endblock contenido %}
+{% endblock content %}

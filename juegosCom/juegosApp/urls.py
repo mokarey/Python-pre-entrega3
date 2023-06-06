@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from juegosApp.views import listar_juegos,listar_juegos_gratis , crear_juego, buscar_juego, crear_juego_gratis, buscar_juego_gratis, eliminar_juego, editar_juego, editar_juego_gratis, eliminar_juego_gratis
+from juegosApp.views import listar_juegos,listar_juegos_gratis , crear_juego, buscar_juego, crear_juego_gratis, buscar_juego_gratis, eliminar_juego, editar_juego, editar_juego_gratis, eliminar_juego_gratis, mostrar_juego, mostrar_juego_gratis
 
 
 urlpatterns = [
@@ -30,6 +30,8 @@ urlpatterns = [
     path('editar-juego/<int:id>/', editar_juego, name='editar_juego'),
     path('eliminar-juego-gratis/<int:id>/', eliminar_juego_gratis, name='eliminar_juego_gratis'),
     path('editar-juego-gratis/<int:id>/', editar_juego_gratis, name='editar_juego_gratis'),
+    path('mostrar-juego/<int:id>/', mostrar_juego, name='mostrar_juego'),
+    path('mostrar-juego-gratis/<int:id>/', mostrar_juego_gratis, name='mostrar_juego_gratis'),
 ]
 
 

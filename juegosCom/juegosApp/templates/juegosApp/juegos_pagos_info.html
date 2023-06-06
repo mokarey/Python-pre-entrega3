@@ -1,0 +1,32 @@
+{% extends "perfiles/index.html" %}
+{% block content %}
+<section class="section-1">
+    <article class="contenido" >
+      <h1> {{ PayGame.nombre }} </h1>
+  
+      <div class="juegos">
+      
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h4 class="card-title">{{ PayGame.nombre }}</h4>
+          <p class="date card-text">+{{ PayGame.clasificacion }}</p>
+          <p class="card-text genero">{{ PayGame.genero }}</p>
+          <p class="card-text">{{ PayGame.descripcion }}</p>
+          <p class="date card-text">{{ PayGame.lanzamiento }}</p>
+          <h6 class="card-title costo">${{ PayGame.costo }}</h6>
+          <div>
+            {% if user == PayGame.creador %}
+            <a class="delete btn btn-danger" href="{% url 'eliminar_juego' PayGame.id %}" method="POST">Eliminar</a>
+            {% endif %}
+            {% if user == PayGame.creador %}
+            <a class="edit btn btn-primary" href="{% url 'editar_juego' PayGame.id %}" method="POST">Editar</a>
+            {% endif %}
+            <a class="edit btn btn-success" href="#" method="POST">Comprar</a>
+          </div>
+          
+        </div>
+      </div>
+      
+    </article>
+  </section>
+{% endblock content %}

@@ -222,3 +222,21 @@ def editar_juego_gratis(request, id):
         template_name='juegosApp/editar_juego_gratis.html', 
         context={'formulario':formulario}
     )
+
+# VISTA MOSTRAR INFO JUEGOS. 
+def mostrar_juego(request, id):
+    PayGame = PayGames.objects.get(id=id) 
+    contexto = {
+        'PayGame':PayGame,
+    }
+
+    return render(request,'juegosApp/juegos_pagos_info.html', contexto)
+
+# VISTA MOSTRAR INFO JUEGOS GRATIS. 
+def mostrar_juego_gratis(request, id):
+    FreeGame = FreeGames.objects.get(id=id) 
+    contexto = {
+        'FreeGame':FreeGame,
+    }
+
+    return render(request,'juegosApp/juegos_gratis_info.html', contexto)
