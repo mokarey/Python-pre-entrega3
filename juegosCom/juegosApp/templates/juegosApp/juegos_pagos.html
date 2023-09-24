@@ -22,7 +22,37 @@
           {% if user == PayGame.creador %}
           <a class="edit btn btn-primary" href="{% url 'editar_juego' PayGame.id %}" method="POST">Editar</a>
           {% endif %}
-          <a class="edit btn btn-success" href="#" method="POST">Comprar</a>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+          </button>
+
+          <!-- Modal -->
+          <script>
+            paypal.Buttons({
+              // Order is created on the server and the order id is returned
+              createOrder() {
+                return fetch("/my-server/create-paypal-order", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  // use the "body" param to optionally pass additional order information
+                  // like product skus and quantities
+                  body: JSON.stringify({
+                    cart: [
+                      {
+                        sku: "YOUR_PRODUCT_STOCK_KEEPING_UNIT",
+                        quantity: "YOUR_PRODUCT_QUANTITY",
+                      },
+                    ],
+                  }),
+                })
+                .then((response) => response.json())
+                .then((order) => order.id);
+              }
+            }).render('#paypal-button-container');
+          </script>
         </div>
         
       </div>

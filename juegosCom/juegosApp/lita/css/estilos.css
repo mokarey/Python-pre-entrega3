@@ -154,10 +154,6 @@ header{
     transition: 1s;
 }
 
-.section-1 .contenido .juegos .card:hover{
-    transform: scale(1.1);
-}
-
 
 .section-1 .contenido .juegos h4{
     color: #ffffff;

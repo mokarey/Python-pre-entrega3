@@ -3,8 +3,8 @@ from django.urls import reverse
 from juegosApp.models import PayGames, FreeGames, Carrito
 from juegosApp.forms import juegoForm, juegoGratisForm
 from django.contrib.auth.decorators import login_required
-
 # Create your views here.
+
 
 # VISTA JUEGOS PAGOS.
 
